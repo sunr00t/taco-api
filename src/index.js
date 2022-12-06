@@ -1,7 +1,8 @@
 const app = require('./config/express.js')();
+require('dotenv').config();
 
 const port = process.env.PORT || 4000;
-const base_url = process.env.BASE_URL;
+const url = process.env.BASE_URL || '0.0.0.0';
 
 /* eslint-disable-next-line */
-app.listen(port, () => console.log(`Listening at http://${base_url}:${port}`));
+app.listen(port, url, () => console.log(`Listening at http://${url}:${port}`));
